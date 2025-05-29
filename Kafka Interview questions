@@ -1,1 +1,61 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is Apache Kafka?
+Apache Kafka is a distributed event streaming platform used for building real-time data pipelines and streaming applications.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+What are the main components of Kafka?
+
+    Producer: Sends data to Kafka topics.
+
+    Consumer: Reads data from Kafka topics.
+
+    Broker: Kafka server that stores and serves data.
+
+    Topic: A category or feed name to which records are published.
+
+    Partition: Subdivision of a topic for parallelism and scalability.
+
+    ZooKeeper: Used for managing and coordinating Kafka brokers (Note: newer Kafka versions are moving away from ZooKeeper).
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is a Kafka topic?
+A topic is a logical channel where records/messages are published. Topics can be split into partitions.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is a partition in Kafka?
+A partition is an ordered, immutable sequence of records within a topic. It allows Kafka to parallelize processing.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is a Kafka broker?
+A broker is a Kafka server that receives, stores, and forwards messages.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What guarantees does Kafka provide regarding message delivery?
+Kafka provides:
+
+    At most once
+
+    At least once (most common)
+
+    Exactly once (with additional configurations)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How does Kafka achieve fault tolerance?
+By replicating partitions across multiple brokers, so if one broker fails, others can continue serving data.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is the role of ZooKeeper in Kafka?
+ZooKeeper manages broker metadata, cluster membership, and leader election for partitions.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How does Kafka ensure message ordering?
+Messages are strictly ordered within a partition, but not across partitions.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is a Kafka consumer group?
+A group of consumers that work together to consume messages from a set of partitions. Each partition is consumed by only one consumer in the group.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is the difference between Kafka and traditional messaging queues?
+Kafka is designed for distributed streaming with high throughput and durability, unlike traditional messaging systems that focus on transient message delivery.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is offset in Kafka?
+The offset is a unique identifier for each message within a partition, representing its position.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How do producers decide which partition to send data to?
+By default, Kafka uses a partitioner, which may use a key's hash or round-robin if no key is specified.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is the retention policy in Kafka?
+Kafka retains messages for a configured period or size limit, after which messages are deleted, regardless of whether they were consumed.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
